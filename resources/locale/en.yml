@@ -1,0 +1,12 @@
+kyrne-sylloge:
+  forum:
+    settings:
+      label: Email Digest
+      weekly: Weekly
+      daily: Daily
+      none: Never
+    email:
+      subject_weekly: "{forum} - Weekly Digest"
+      subject_daily: "{forum} - Daily Digest"
+    signup:
+      want_digest: Recieve Weekly Digest?

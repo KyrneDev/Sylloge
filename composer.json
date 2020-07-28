@@ -1,0 +1,37 @@
+{
+    "name": "kyrne/sylloge",
+    "description": "Send email digests.",
+    "keywords": [
+        "flarum",
+		"digest",
+		"email"
+    ],
+    "type": "flarum-extension",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "flarum/core": "^0.1.0-beta-13",
+        "fof/console": "^0.5.3"
+    },
+    "authors": [
+        {
+            "name": "Charlie K",
+            "email": "charlie.k@redevs.org",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kyrne\\Sylloge\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Kyrne Sylloge",
+            "icon": {
+                "name": "fas fa-mail-bulk",
+                "background": "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(224,64,251,1) 0%, rgba(33,150,243,1) 100%)",
+                "color": "#fff"
+            }
+        }
+    }
+}
