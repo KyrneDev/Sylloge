@@ -180,7 +180,7 @@ class SendDigest extends Command
             'forumTitle' => $title,
             'forumLogo' => $logoPath ? $this->url->to('forum')->path('assets/'.$logoPath) : null,
             'adminMessage' => $settings->get('kyrne-sylloge.admin_message'),
-            'unsubscribeURL' => $this->url->to('forum')->route('sylloge.digest.unsubscribe'),
+            'unsubscribeURL' => $this->url->to('forum')->route('settings'),
             'date' => Carbon::now()
         ]);
 
@@ -194,7 +194,7 @@ class SendDigest extends Command
                 try {
                     $this->mailer->html($view,
                         function (Message $message) use ($u, $title, $intervalName) {
-                            $message->to($u->email)->subject($this->translator->trans('kyrne-sylloge.forum.email.subject_'.$intervalName, ['{forum}' => $title]));
+                            $message->to($u->email)->subject($this->translator->trans('kyrne-sylloge.forum.email.subject', ['{forum}' => $title, '{when}' => ucfirst($intervalName)]));
                         });
 
                     $this->output->write('<info>#</info>');

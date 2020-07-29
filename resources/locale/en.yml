@@ -6,7 +6,6 @@ kyrne-sylloge:
       daily: Daily
       none: Never
     email:
-      subject_weekly: "{forum} - Weekly Digest"
-      subject_daily: "{forum} - Daily Digest"
+      subject: "{forum} - {when} Digest"
     signup:
       want_digest: Recieve Weekly Digest?
