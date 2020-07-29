@@ -77,7 +77,7 @@
                         <td class="content-header h1" style="box-sizing: border-box; vertical-align: top; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #1271db; border-radius: 3px 3px 0 0; text-align: center; padding: 60px 0;"
                             valign="top" bgcolor="#1271db" align="center">
                             <h1 style=" font-weight: bold; line-height: 1.4em; margin: 0; padding-bottom: 30px; font-size: 34px; padding: 0; text-align: center; color: #ffffff; text-transform: none;">{{ $forumTitle }}</h1>
-                            <h4 style="color: #fff; display: inline-block; float: left; margin: 0; position: relative; top: 50px; text-align: left; left: 10px">{{ $date }}</h4>
+                            <h4 style="color: #fff; display: inline-block; float: left; margin: 0; position: relative; top: 50px; text-align: left; left: 10px">{{ date("F jS, Y", strtotime($date)) }}</h4>
 
                             <h4 style="color: #fff; display: inline-block; float: right; margin: 0; position: relative; top: 50px; text-align: right; right: 10px">{{ preg_replace("(^https?://)", "", $baseUrl) }}</h4>
 

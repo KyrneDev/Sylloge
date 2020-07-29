@@ -100,7 +100,7 @@ class SendDigest extends Command
         }
 
         if ($intervalName === 'weekly') {
-            $time = Carbon::now()->subDays(7);
+            $time = Carbon::now()->subDays(800);
         } else {
             $time = Carbon::now()->subDays(1);
         }
@@ -139,7 +139,7 @@ class SendDigest extends Command
                 'title' => $discussion->title,
                 'author' => $user->username,
                 'avatar' => $user->avatar_url,
-                'content' => substr($post->content, 0, 190) . (strlen($post->content) > 190 ? '...' : ''),
+                'content' => substr($post->content, 0, 175) . (strlen($post->content) > 175 ? '...' : ''),
                 'url' => $this->url->to('forum')->route('discussion',
                     ['id' => $discussion->id . '-' . trim($discussion->slug)])
             ]);
@@ -170,15 +170,18 @@ class SendDigest extends Command
 
         $title = $settings->get('forum_title');
 
+        $logoPath = $settings->get('logo_path');
+
         $view = $this->views->make('sylloge::digest', [
             'content' => $content,
             'primaryColor' => $settings->get('theme_primary_color'),
             'secondaryColor' => $settings->get('theme_secondary_color'),
             'baseUrl' => app()->url(),
             'forumTitle' => $title,
+            'forumLogo' => $logoPath ? $this->url->to('forum')->path('assets/'.$logoPath) : null,
             'adminMessage' => $settings->get('kyrne-sylloge.admin_message'),
             'unsubscribeURL' => $this->url->to('forum')->route('sylloge.digest.unsubscribe'),
-            'date' => date("F jS, Y", strtotime(Carbon::now()))
+            'date' => Carbon::now()
         ]);
 
         $users->chunk(20, function ($users) use (&$errors, $view, $title, $intervalName) {
