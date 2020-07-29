@@ -8,4 +8,4 @@ kyrne-sylloge:
     email:
       subject: "{forum} - {when} Digest"
     signup:
-      want_digest: Recieve Weekly Digest?
+      want_digest: Receive Weekly Digest?

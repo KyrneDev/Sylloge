@@ -100,7 +100,7 @@ class SendDigest extends Command
         }
 
         if ($intervalName === 'weekly') {
-            $time = Carbon::now()->subDays(800);
+            $time = Carbon::now()->subDays(7);
         } else {
             $time = Carbon::now()->subDays(1);
         }
