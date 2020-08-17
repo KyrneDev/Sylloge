@@ -11,12 +11,14 @@ use Kyrne\Sylloge\Console\SendDigest;
 use Kyrne\Sylloge\Listeners\InjectSettings;
 use Kyrne\Sylloge\Listeners\SaveDigestSettings;
 use Kyrne\Sylloge\Provider\ConsoleProvider;
+use Kyrne\ExtCore\Extend\AddKyrneCore;
 
 return [
     (new Extend\Frontend('forum'))
         ->js(__DIR__ . '/js/dist/forum.js')
         ->css(__DIR__ . '/resources/less/forum.less'),
     new Extend\Locales(__DIR__ . '/resources/locale'),
+    new AddKyrneCore(),
     (new Extend\Console())
         ->command(SendDigest::class),
     (new Extend\Routes('api'))
